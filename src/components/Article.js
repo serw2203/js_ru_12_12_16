@@ -1,4 +1,5 @@
 import React, { Component } from 'react'
+import CommentList from './CommentList';
 
 export default class Article extends Component {
     state = {
@@ -20,6 +21,7 @@ export default class Article extends Component {
             <div>
                 <h3 onClick = {this.toggleOpen}>{article.title}</h3>
                 {this.getBody()}
+                <CommentList comments={ article.comments } />
             </div>
         )
     }
