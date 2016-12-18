@@ -3,6 +3,7 @@ import Comment from './Comment';
 
 const openComments = {
     isOpen: true,
+    //а это совсем не нужно в state, ты можешь получить текст из прошлой переменной
     btnTitle: 'Скрыть комментарии',
 };
 
@@ -13,10 +14,12 @@ const closeComments = {
 
 export default class CommentList extends Component {
     state = {
+        //лучше не держать вложеных объектов в state + название не очень
         toogleComments: closeComments
     }
 
     static sortCommentsById = ( arr ) => {
+        //не понимаю зачем это тебе
         return arr.sort((a, b) => {
             let i1 = Number(a.id);
             let i2 = Number(b.id);
@@ -36,6 +39,7 @@ export default class CommentList extends Component {
 
     handleClick = () => {
         this.setState(
+            //что это за присвоение такое?
             this.state.toogleComments = this.state.toogleComments.isOpen ? closeComments : openComments
         )
     }
