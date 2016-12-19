@@ -20,9 +20,7 @@ export default class Article extends Component {
         return (
             <div>
                 <h3 onClick = {this.toggleOpen}>{article.title}</h3>
-                {this.getBody()}
-                {/*их стоило в getBody внести*/}
-                <CommentList comments={ article.comments } />
+                {this.getBody(article.comments)}
             </div>
         )
     }
@@ -33,11 +31,13 @@ export default class Article extends Component {
         })
     }
 
-    getBody() {
+    getBody(comments) {
         if (!this.state.isOpen) return null
         return (
             <section>
                 {this.props.article.text}
+                {/*их стоило в getBody внести*/}
+                <CommentList comments={ comments } />
             </section>
         )
     }
