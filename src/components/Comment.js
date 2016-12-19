@@ -6,10 +6,10 @@ export default class Comment extends Component {
         const comment = this.props.comment;
     //лучше не вносить li в Comment, это значительно уменьшает возможность переиспользовать компонент
         return (
-            <li>
+            <div>
                 <h5>{ comment.user } ID = { comment.id }</h5>
                 <p>{ comment.text }</p>
-            </li>
+            </div>
         )
     }
 }

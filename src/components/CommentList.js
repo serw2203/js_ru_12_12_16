@@ -1,26 +1,19 @@
 import React, {Component} from 'react'
 import Comment from './Comment';
 
-const openComments = {
-    isOpen: true,
-    //а это совсем не нужно в state, ты можешь получить текст из прошлой переменной
-    btnTitle: 'Скрыть комментарии',
-};
-
-const closeComments = {
-    isOpen: false,
-    btnTitle: 'Показать комментарии',
-};
-
 export default class CommentList extends Component {
     state = {
         //лучше не держать вложеных объектов в state + название не очень
-        toogleComments: closeComments
+        isExpanded: false
     }
 
     static sortCommentsById = ( arr ) => {
         //не понимаю зачем это тебе
-        return arr.sort((a, b) => {
+        /**-SB: обратная сортировка по числовому значению id commenta
+         * думаю, что если это комментарии к статье, то они должны выводится в порядке обратном появлению
+         * (немного потренировался в js)
+         */
+         return arr.sort((a, b) => {
             let i1 = Number(a.id);
             let i2 = Number(b.id);
 
@@ -39,8 +32,8 @@ export default class CommentList extends Component {
 
     handleClick = () => {
         this.setState(
-            //что это за присвоение такое?
-            this.state.toogleComments = this.state.toogleComments.isOpen ? closeComments : openComments
+            //лучше не держать вложеных объектов в state + название не очень
+            this.state.isExpanded = !this.state.isExpanded
         )
     }
 
@@ -48,7 +41,7 @@ export default class CommentList extends Component {
         if (this.state.toogleComments.isOpen) {
             return (
                 <ul>{comments.map(comment => {
-                    return <Comment key={ comment.id } comment={ comment }/>;
+                    return <li><Comment key={ comment.id } comment={ comment }/></li>;
                 }) }
                 </ul>
             );
@@ -59,7 +52,9 @@ export default class CommentList extends Component {
         if (comments.length > 0) {
             return (
                 <div>
-                    <button onClick={ this.handleClick }>{ this.state.toogleComments.btnTitle }</button>
+                    {/*а это совсем не нужно в state, ты можешь получить текст из прошлой переменной*/}
+                    {/* SB: как получить из прошлой переменной ??? Так ? */}
+                    <button onClick={ this.handleClick }>{ this.state.isExpanded ? 'Скрыть комментарии' : 'Показать комментарии' }</button>
                     {this.renderComments(comments)}
                 </div>
             );
