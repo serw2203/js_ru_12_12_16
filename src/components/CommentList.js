@@ -33,15 +33,15 @@ export default class CommentList extends Component {
     handleClick = () => {
         this.setState(
             //лучше не держать вложеных объектов в state + название не очень
-            this.state.isExpanded = !this.state.isExpanded
+            { isExpanded: !this.state.isExpanded }
         )
     }
 
     renderComments = (comments) => {
-        if (this.state.toogleComments.isOpen) {
+        if (this.state.isExpanded) {
             return (
                 <ul>{comments.map(comment => {
-                    return <li><Comment key={ comment.id } comment={ comment }/></li>;
+                    return <li key={ comment.id }><Comment comment={ comment }/></li>;
                 }) }
                 </ul>
             );
