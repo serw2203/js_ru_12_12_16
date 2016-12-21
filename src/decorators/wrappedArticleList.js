@@ -6,6 +6,7 @@ export default function (Component) {
     return class WrapperComponent2 extends React.Component {
 
         state = {
+            //суть декораторов в переисползовании кода, не привязывайся к названиям сущностей. Лучше openItemId
             openArticleId: null,
         }
 
