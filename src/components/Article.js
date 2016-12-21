@@ -2,8 +2,11 @@ import React, { Component, PropTypes } from 'react'
 import CommentList from './CommentList'
 
 export default class Article extends Component {
+    //todo: HT 2.1
     static propTypes = {
-        article: PropTypes.object.isRequired
+        article: PropTypes.object.isRequired,
+        isOpen: PropTypes.bool.isRequired,
+        onClick: PropTypes.func.isRequired
     }
 
     componentDidMount() {
