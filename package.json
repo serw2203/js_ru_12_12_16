@@ -4,7 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "start": "webpack-dev-server --hot --inline",
+    "start": "webpack-dev-server --hot --inline --port 8000",
     "build": "webpack"
   },
   "repository": {
@@ -32,6 +32,7 @@
   "dependencies": {
     "react": "^15.3.2",
     "react-addons-css-transition-group": "^15.4.1",
+    "react-day-picker": "git+https://github.com/gpbl/react-day-picker.git",
     "react-dom": "^15.3.2",
     "react-select": "^1.0.0-rc.2"
   }

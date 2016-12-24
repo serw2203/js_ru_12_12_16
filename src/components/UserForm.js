@@ -13,7 +13,7 @@ class UserForm extends Component {
         return (
             <div>
                 Input username:
-                <input type="text" value={this.state.username} onChange={this.handleChange}/>
+                <input id="username" type="text" value={this.state.username} onChange={this.handleChange}/>
             </div>
         )
     }
