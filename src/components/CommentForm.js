@@ -8,6 +8,7 @@ export default class CommentForm extends Component {
     };
 
     state = {
+        //ок, но я просил текст и юзера
         comment: '',
     }
 
