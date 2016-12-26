@@ -12,7 +12,7 @@ class CommentList extends Component {
     static defaultProps = {
         comments: []
     }
-
+    //это путь к огромному количеству потенциальных багов, так не делают
     state = {
         comments: null,
     }
@@ -37,7 +37,7 @@ class CommentList extends Component {
         const el = document.getElementById('username')
         const user = el && el.value ? el.value : 'anonymous'
         const id = Math.floor(Math.random() * 10) + 10
-
+       
         const comments = [...(this.state.comments || this.props.comments), {id: id, user: user, text: text}]
         this.setState({comments: comments})
         console.log('modifiedComments == >>>')
