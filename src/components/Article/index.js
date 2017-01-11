@@ -55,9 +55,9 @@ class Article extends Component {
     }
 
     handleDelete = ev => {
-        ev.preventDefault()
-        this.props.deleteArticle(this.props.article.id)
-    }
+    ev.preventDefault()
+    this.props.deleteArticle(this.props.article.id)
+}
 }
 
 export default connect(null, { deleteArticle })(Article)

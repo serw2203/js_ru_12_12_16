@@ -2,9 +2,10 @@ import React, {PropTypes} from 'react'
 import {findDOMNode} from 'react-dom'
 import Article from './Article'
 import accordion from '../decorators/accordion'
-import { connect } from 'react-redux'
+import {connect} from 'react-redux'
 
 class ArticleList extends React.Component {
+
     render() {
         const {articles, isOpenItem, toggleOpenItem} = this.props
         const articleElements = articles.map(article =>
@@ -12,7 +13,7 @@ class ArticleList extends React.Component {
                 <Article article={article}
                          isOpen={isOpenItem(article.id)}
                          onClick={toggleOpenItem(article.id)}
-                         ref = {this.getArticleRef}
+                         ref={this.getArticleRef}
                 />
             </li>)
         return (
@@ -41,7 +42,7 @@ ArticleList.propTypes = {
 export default connect(
     (state) => {
         return {
-            articles: state.articles
+            articles: state.filtered,
         }
     }
 )(accordion(ArticleList))
