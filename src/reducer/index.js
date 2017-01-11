@@ -4,6 +4,7 @@ import articlesReducer from './articles'
 import * as _ from '../constants'
 import * as f from '../fixtures'
 
+//первые два редюсера объедени в один и вынеси в отдельный файл
 const dateReducer = (state = {}, action) => {
     if (action.type === _.FILTER_DATE) {
         return action.payload
@@ -18,6 +19,7 @@ const selectedReducer = (state = [], action) => {
     return state
 }
 
+//этот  убрать. У тебя есть значения фильтров и все статьи. Пофильтровать сможешь там, где нужен будет список 
 const filterReducer = (state = f.articles, action) => {
     if (action.type === _.FILTER_ARTICLE) {
 
