@@ -21,6 +21,7 @@ export default (articlesState = defaultState, action) => {
             return articlesState.delete(payload.id)
         //todo HT_5.3
         case ADD_COMMENT: {
+            //это все можно написать значительно короче, с помощью .update
             let article = articlesState.get(payload.article.id).toJS()
             const comments = [...(articlesState.get(payload.article.id).comments || []), payload.comment.id]
             article.comments = [...comments, ...article.comments ]
