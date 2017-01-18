@@ -26,6 +26,7 @@ export default (state = defaultState, action) => {
 
 
         case LOAD_ARTICLE_COMMENTS + START: {
+            //здесь так не пройдет, ведь теоретически ты можешь одновременно для нескольких статей загружать
             return state.set('loading', true)
         }
 
