@@ -58,6 +58,7 @@ export function loadArticleById(id) {
 
 export function loadCommentsByArticleId(id) {
     return (dispatch, getState) => {
+        //нет, такая проверка подходила для статьи, поскольку нам для нее нужно было загружать текст. А это у тебя вообще всегда undefined будет, ведь там id статьи,  а ищешь ты в комментах
         if (getState().comments.getIn(['entities', id, 'text'])) return null
 
         dispatch({
