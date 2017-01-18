@@ -5,7 +5,7 @@ import Loader from './Loader'
 import accordion from '../decorators/accordion'
 import { connect } from 'react-redux'
 import { mapToArray } from '../helpers'
-import { loadAllArticles } from '../AC'
+import { loadAllArticles, loadAllComments } from '../AC'
 
 class ArticleList extends React.Component {
     componentDidMount() {
@@ -63,5 +63,5 @@ export default connect(
             loading: state.articles.loading
         }
     },
-    { loadAllArticles }
+    { loadAllArticles, loadAllComments }
 )(accordion(ArticleList))

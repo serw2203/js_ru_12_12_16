@@ -1,9 +1,9 @@
-import React, { Component, PropTypes } from 'react'
-import CommentList from '../CommentList'
-import CSSTransition from 'react-addons-css-transition-group'
-import { deleteArticle, loadArticleById } from '../../AC'
-import { connect } from 'react-redux'
-import './style.css'
+import React, {Component, PropTypes} from "react";
+import CommentList from "../CommentList";
+import CSSTransition from "react-addons-css-transition-group";
+import {deleteArticle, loadArticleById} from "../../AC";
+import {connect} from "react-redux";
+import "./style.css";
 
 class Article extends Component {
     static propTypes = {
@@ -45,6 +45,10 @@ class Article extends Component {
                 </CSSTransition>
             </div>
         )
+    }
+
+    handleButtonClick = (event) => {
+        this.props.loadCommentsByArticleId (this.props.article.id)
     }
 
     getBody() {

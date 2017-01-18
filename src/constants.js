@@ -11,3 +11,5 @@ export const CHANGE_SELECTION = 'CHANGE_SELECTION'
 export const START = '_START'
 export const SUCCESS = '_SUCCESS'
 export const FAIL = '_FAIL'
+
+export const LOAD_ARTICLE_COMMENTS = 'LOAD_ARTICLE_COMMENTS'
